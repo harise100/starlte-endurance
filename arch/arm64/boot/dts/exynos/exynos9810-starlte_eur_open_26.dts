@@ -10,21 +10,21 @@
  */
 
 /dts-v1/;
-#include "exynos9810-star2lte_common.dtsi"
-#include "battery_data_star2lte_eur_18.dtsi"
+#include "exynos9810-starlte_common.dtsi"
+#include "battery_data_starlte_eur_18.dtsi"
 #include "exynos9810-starlte_fingerprint_16.dtsi"
 #include "exynos9810-starlte_mst_01.dtsi"
 #include "exynos9810-starlte_if-pmic-max77705.dtsi"
-#include "exynos9810-star2lte_eur_open_gpio_18.dtsi"
+#include "exynos9810-starlte_eur_open_gpio_18.dtsi"
 
 / {
-	model = "Samsung Star2 rev26 board based on EXYNOS9810";
+	model = "Samsung Star rev26 board based on EXYNOS9810";
 	model_info-chip = <9810>;
 	model_info-platform = "android";
 	model_info-subtype = "samsung";
 	model_info-hw_rev = <26>;
 	model_info-hw_rev_end = <255>;
-	compatible = "Samsung, Star2 rev26", "Samsung,EXYNOS9810";
+	compatible = "Samsung, Star rev26", "Samsung,EXYNOS9810";
 
 	pinctrl@10830000 {
 		spi7_bus_suspend: spi7-bus-suspend {
@@ -135,7 +135,7 @@
 		cfg_wlanen: cfg_wlanen {
 			samsung,pins = "gpg0-5";
 			samsung,pin-function = <1>;
-			samsung,pin-pud = <0>;
+			samsung,pin-pud = <0>; /* NONE */
 			samsung,pin-drv = <3>;
 			samsung,pin-con-pdn = <3>;
 		};
@@ -172,16 +172,16 @@
 			ssp-mcu-resp = <&gph0 4 0x00>;
 			ssp-batch-wake-irq = <&gpa0 5 0x00>;
 			ssp-shub-int = <&gpa4 0 0x00>;
-			ssp-acc-position = <7>;
+			ssp-acc-position = <4>;
 			ssp-mag-position = <5>;
 			ssp-sns-combination = <0>;
 			ssp-ap-rev = <1>;
-			ssp-mag-array = /bits/ 8 <198 82 122 208 147 128 255 41 209 55 233 48 104 30 255 170 255 189 2
-						252 189 252 124 177 10 151 148>;
-			ssp-thermi-up = /bits/ 16 <3010 2981 2937 2899 2840 2771 2682 2582 2470 2348 2203 2053 1909 1740
-						1583 1420 1277 1129 1003 902 804 678 601>;
-			ssp-thermi-sub = /bits/ 16 <3012 2982 2942 2902 2840 2768 2680 2580 2467 2344 2197 2045 1905
-						1740 1582 1421 1278 1130 1004 901 803 672 612>;
+			ssp-mag-array = /bits/ 8 <216 82 110 20 16 123 255 209 211 54 70 37 180 8 0 147 255 113 132 121
+						190 252 250 15 9 40 180>;
+			ssp-thermi-up = /bits/ 16 <3023 2990 2952 2903 2843 2772 2684 2582 2464 2335 2190 2037 1882 1742
+						1558 1397 1246 1103 974 851 746 651 601>;
+			ssp-thermi-sub = /bits/ 16 <3021 2990 2951 2903 2843 2771 2685 2584 2467 2339 2195 2044 1891
+						1747 1567 1409 1258 1115 986 864 759 662 612>;
 			ssp-glass-type = <0>;
 			ssp-mag-type = <1>;
 			ssp-vdd-mcu-1p8 = "vdd_mcu_1p8";
@@ -212,6 +212,49 @@
 
 		gpios = <&gpg0 2 0x0>;
 		status = "okay";
+	};
+
+	pinctrl@14050000 {
+		grip_irq: grip-irq {
+			samsung,pins = "gpa3-0";
+			samsung,pin-function = <0xf>;
+			samsung,pin-pud = <0>;
+			samsung,pin-drv = <3>;
+		};
+	};
+
+	hsi2c_11: hsi2c@104C0000 {
+		status = "okay";
+		sx9320-i2c@22 {
+			compatible = "sx9320";
+			reg = <0x28>;
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&grip_irq>;
+			interrupt-parent = <&gpa3>;
+			interrupts = <0 0 0>;
+
+			/* only phase 3 enable */
+			sx9320,phen = <0x03>;
+			sx9320,nirq-gpio = <&gpa3 0 0x00>;
+			sx9320,gain = <0x01>;
+			sx9320,again = <0x08>;
+			sx9320,scan_period = <0x16>;
+			sx9320,range = <0x00>;
+			sx9320,sampling_freq = <0x00>;
+			sx9320,resolution = <0x07>;
+			sx9320,rawfilt = <0x01>;
+			sx9320,hyst = <0x01>;
+			sx9320,avgposfilt = <0x04>;
+			sx9320,avgnegfilt = <0x01>;
+			sx9320,avgthresh = <0x20>;
+			sx9320,debouncer = <0x01>;
+			sx9320,normal_thd = <0x20>;
+			sx9320,afeph0 = <0x0>;
+			sx9320,afeph1 = <0x0>;
+			sx9320,afeph2 = <0x0>;
+			sx9320,afeph3 = <0x4>;
+		};
 	};
 
 	speedy@141C0000 {
