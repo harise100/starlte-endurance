@@ -1,0 +1,44 @@
+Hey there stranger! Welcome to my actually useful readme that anyone who wants to compile this kernel on their own can use!
+
+--- How I build for my G960F ---
+
+export CROSS_COMPILE=~/kernels/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android- (Insert toolchain path here)
+export ARCH=arm64
+export SUBARCH=arm64
+make clean
+make mrproper
+make exynos9810-starlte_calikernel_defconfig (For G965, replace starlte with star2lte)
+make
+
+--- TO DO ---
+
+- Waiting for NK v104 for more changes
+- Suggest some changes!
+
+--- Commits ---
+
+from @AndreiLux
+
+- EAS Backports (Included in APGK from @flar2)
+- arm64/boot: Adapted starlte cost tables for 2314MHz M3's
+- dts: starlte: Freqvar tuneables optimisations
+- sched: fair: Express idle cost power as percentage of busy state
+- sched: ehmp: Make the ontime migrations hooks a sched feature (Included in APGK from @flar2)
+- sched: sync ehmp with new WALT and PELT changes (Included in APGK from @flar2)
+- sched/freqvar: Express the rate limits in µs instead of ms
+- update Gator to 6.51
+- sched/schedutil: Introduce a power aware capacity limiter
+- sched/fair: Migration hysteresis filter from HiSilicon EAS
+
+From @Ianmacd
+
+- Everything - For always helping out with all of my nooby issues and for creating the kernel from which this is forked from!! 
+
+From @Farovitus
+
+- Managing ELS (Included in APGK)
+- Nothing after GitHub repository rework - additional changes will come with new builds or user requests!
+
+--- Contact Me ---
+
+Telegram / XDA / GitHub - @Eamo5 (Telegram preferred)
