@@ -994,16 +994,16 @@ static int __init exynos_hpgov_parse_dt(void)
 	exynos_hpgov.maxfreq_table[SINGLE] = max_freq;
 
 	if (arg_overclock == 1) {
-		exynos_hpgov.maxfreq_table[DUAL] = 2314000;
-		exynos_hpgov.maxfreq_table[TRIPLE] = 1924000;
-		exynos_hpgov.maxfreq_table[QUAD] = 1924000;
-		exynos_hpgov.maxfreq_table[DISABLE] = 2314000;
+		exynos_hpgov.maxfreq_table[DUAL] = 2496000;
+		exynos_hpgov.maxfreq_table[TRIPLE] = 2106000;
+		exynos_hpgov.maxfreq_table[QUAD] = 1794000;
+		exynos_hpgov.maxfreq_table[DISABLE] = 1794000;
 
 	} else if (arg_overclock == 2) {
-		exynos_hpgov.maxfreq_table[DUAL] = 2496000;
-		exynos_hpgov.maxfreq_table[TRIPLE] = 2002000;
-		exynos_hpgov.maxfreq_table[QUAD] = 2002000;
-		exynos_hpgov.maxfreq_table[DISABLE] = max_freq;
+		exynos_hpgov.maxfreq_table[DUAL] = 2652000;
+		exynos_hpgov.maxfreq_table[TRIPLE] = 2496000;
+		exynos_hpgov.maxfreq_table[QUAD] = 2314000;
+		exynos_hpgov.maxfreq_table[DISABLE] = 2314000;
 
 	} else {
 		if (of_property_read_u32(np, "dual_freq", &freq))
