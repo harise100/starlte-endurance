@@ -42,3 +42,7 @@ From @Farovitus
 --- Contact Me ---
 
 Telegram / XDA / GitHub - @Eamo5 (Telegram preferred)
+
+--- Editing Ramdisk ---
+
+sudo su -c 'subl ___' (Insert file name in ___) (Replace subl with text editor of choice. I am using Sublime Text)
