@@ -4985,7 +4985,7 @@
 			boost_table = < 0 >;
 			up_rate_limit_table = < 0 >;
 			down_rate_limit_table = < 0 >;
-			upscale_ratio_table = < 80 1248000 90 1456000 95 >;
+			upscale_ratio_table = < 100 1456000 140 1690000 190 >;
 		};
 		domain@1 {
 			device_type = "freqvar-tune";
