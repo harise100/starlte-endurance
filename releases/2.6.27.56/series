@@ -1,5 +1,0 @@
-pcmcia-synclink_cs-fix-information-leak-to-userland.patch
-sched-fix-string-comparison-in-proc-sched_features.patch
-libsas-fix-ncq-mixing-with-non-ncq.patch
-gdth-integer-overflow-in-ioctl.patch
-fix-race-when-removing-scsi-devices.patch

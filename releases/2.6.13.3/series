@@ -1,8 +1,0 @@
-yenta-oops-fix.patch
-fix-de_thread-BUG_ON.patch
-ipv6-fix-per-socket-multicast-filtering.patch
-ipvs-ip_vs_ftp-breaks-connections.patch
-uml-fix-x86_64-page-leak.patch
-skge-set-mac-address-oops-with-bonding.patch
-tcp-set-default-congestion-control-correctly.patch
-tcp-dont-over-clamp-window-in-tcp_clamp_window.patch
