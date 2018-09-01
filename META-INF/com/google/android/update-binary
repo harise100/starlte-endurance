@@ -4,8 +4,8 @@
 ZIPFILE=$3
 OUTFD=$2
 
-kernel=4.9.122
-apgk=0.99.13
+kernel=4.9.124
+endurance=1.7.3
 build=1
 
 # Detect real $OUTFD
@@ -47,8 +47,8 @@ unzip_file() {
 
 ui_print " "
 ui_print "======================================="
-ui_print "         APGK $kernel-$apgk-$build"
-ui_print "         a pretty good kernel"
+ui_print " Endurance Kernel $kernel-$endurance-$build"
+ui_print "        Thanks @ianmacd for APGK"
 ui_print "=======================================" 
 ui_print " "
 
@@ -78,8 +78,8 @@ ZIPNAME=${ZIPFILE##*/}
 
 # Now get to work.
 #
-for i in boot-G965F.img boot-G965F-oc.img.bsdiff boot-G965F-uc.img.bsdiff \
-boot-G960F.img.bsdiff boot-G960F-oc.img.bsdiff boot-G960F-uc.img.bsdiff \
+for i in boot-G965F.img \
+boot-G960F.img.bsdiff \
 bspatch; do
   unzip_file $i /tmp/$i
 done
