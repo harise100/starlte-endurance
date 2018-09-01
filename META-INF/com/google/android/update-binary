@@ -5,8 +5,7 @@ ZIPFILE=$3
 OUTFD=$2
 
 kernel=4.9.124
-endurance=1.7.3
-build=1
+endurance=1.7.4
 
 # Detect real $OUTFD
 readlink /proc/$$/fd/$OUTFD 2>/dev/null | grep /tmp >/dev/null
@@ -47,8 +46,8 @@ unzip_file() {
 
 ui_print " "
 ui_print "======================================="
-ui_print " Endurance Kernel $kernel-$endurance-$build"
-ui_print "        Thanks @ianmacd for APGK"
+ui_print "       Endurance Kernel $kernel-$endurance"
+ui_print "         Thanks @ianmacd for APGK"
 ui_print "=======================================" 
 ui_print " "
 
@@ -70,16 +69,18 @@ getprop ro.boot.bootloader | grep '^G960F' >/dev/null && device=G960F
 ZIPNAME=${ZIPFILE##*/}
 [ $ZIPNAME != ${ZIPNAME/_underclock//} ] && UNDERCLOCK=true
 [ $ZIPNAME != ${ZIPNAME/_overclock//} ] && OVERCLOCK=true
+{ $ZIPNAME != ${ZIPNAME/_noehmp//} ] &&& NOEHMP=true
 
 # Otherwise, check for dotfiles to determine kernel choice.
 #
 [ -f /external_sd/.underclock ] && UNDERCLOCK=true
 [ -f /external_sd/.overclock ] && OVERCLOCK=true
+( -f /external_sd/.noehmp ] && NOEHMP=true
 
 # Now get to work.
 #
-for i in boot-G965F.img \
-boot-G960F.img.bsdiff \
+for i in boot-G965F.img boot-G965F-oc.img.bsdiff boot-G965F-uc.img.bsdiff boot-G965F-noehmp.img.bsdiff\
+boot-G960F.img.bsdiff boot-G960F-oc.img.bsdiff boot-G960F-uc.img.bsdiff boot-G960F-noehmp.img.bsdiff\
 bspatch; do
   unzip_file $i /tmp/$i
 done
@@ -98,6 +99,9 @@ if [ "$OVERCLOCK" = true ]; then
 elif [ "$UNDERCLOCK" = true ]; then
   image=underclock
   variant=-uc
+elif [ "$NOEHMP" = true ]; then
+  image=noehmmp
+  variant=-noehmp
 fi
 
 if [ "$device" = G965F ] || [ "$device" = G960F ]; then
