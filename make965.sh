@@ -1,0 +1,4 @@
+make clean
+make mrproper
+make exynos9810-star2lte_calikernel_defconfig
+make

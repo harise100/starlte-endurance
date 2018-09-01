@@ -1,0 +1,4 @@
+make clean
+make mrproper
+make exynos9810-starlte_calikernel_defconfig
+make
