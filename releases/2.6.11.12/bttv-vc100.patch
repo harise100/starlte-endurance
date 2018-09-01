@@ -1,0 +1,34 @@
+From stable-bounces@linux.kernel.org  Wed Jun  1 12:54:20 2005
+Date: Wed, 01 Jun 2005 21:16:04 +0200
+From: Marin Glibic <zhilla@bigfoot.com>
+To: stable@kernel.org
+Cc: Greg KH <gregkh@suse.de>
+Subject: [PATCH] Fix for bttv driver (v0.9.15) for Leadtek WinFast VC100 XP capture cards
+
+From: Pete Jewell <pete@phraxos.nildram.co.uk>
+Cc: kraxel@bytesex.org
+
+This is a tiny patch that fixes bttv-cards.c so that Leadtek WinFast
+VC100 XP video capture cards work. I've been advised to post it here
+after having already posted it to the v4l mailing list.
+
+Acked-by: Gerd Knorr <kraxel@bytesex.org>
+Signed-off-by: Andrew Morton <akpm@osdl.org>
+Signed-off-by: Linus Torvalds <torvalds@osdl.org>
+Signed-off-by: Chris Wright <chrisw@osdl.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@suse.de>
+
+---
+ drivers/media/video/bttv-cards.c |    1 -
+ 1 files changed, 1 deletion(-)
+
+--- linux-2.6.11.10.orig/drivers/media/video/bttv-cards.c	2005-05-16 10:50:32.000000000 -0700
++++ linux-2.6.11.10/drivers/media/video/bttv-cards.c	2005-06-08 22:40:30.000000000 -0700
+@@ -1939,7 +1939,6 @@
+         .no_tda9875     = 1,
+         .no_tda7432     = 1,
+         .tuner_type     = TUNER_ABSENT,
+-        .no_video       = 1,
+ 	.pll            = PLL_28,
+ },{
+ 	.name           = "Teppro TEV-560/InterVision IV-560",

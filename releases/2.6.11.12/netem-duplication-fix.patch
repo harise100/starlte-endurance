@@ -1,0 +1,39 @@
+From shemminger@osdl.org  Wed Jun  8 09:30:09 2005
+Date: Wed, 8 Jun 2005 09:30:09 -0700
+From: Stephen Hemminger <shemminger@osdl.org>
+To: Chris Wright <chrisw@osdl.org>
+Subject: [PATCH] [PKT_SCHED]: netem: duplication fix
+
+Netem duplication can cause infinite loop in qdisc_run
+because the qlen of the parent qdisc is not affected by the duplication.
+
+Signed-off-by: Stephen Hemminger <shemminger@osdl.org>
+Signed-off-by: Chris Wright <chrisw@osdl.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@suse.de>
+
+---
+ net/sched/sch_netem.c |   13 +++++++++----
+ 1 files changed, 9 insertions(+), 4 deletions(-)
+
+--- linux-2.6.11.10.orig/net/sched/sch_netem.c	2005-05-16 10:52:03.000000000 -0700
++++ linux-2.6.11.10/net/sched/sch_netem.c	2005-06-08 22:40:40.000000000 -0700
+@@ -184,10 +184,15 @@
+ 	/* Random duplication */
+ 	if (q->duplicate && q->duplicate >= get_crandom(&q->dup_cor)) {
+ 		struct sk_buff *skb2 = skb_clone(skb, GFP_ATOMIC);
+-
+-		pr_debug("netem_enqueue: dup %p\n", skb2);
+-		if (skb2)
+-			delay_skb(sch, skb2);
++		if (skb2) {
++			struct Qdisc *rootq = sch->dev->qdisc;
++			u32 dupsave = q->duplicate;
++
++			/* prevent duplicating a dup... */
++			q->duplicate = 0;
++			rootq->enqueue(skb2, rootq);
++			q->duplicate = dupsave;
++		}
+ 	}
+ 
+ 	/* If doing simple delay then gap == 0 so all packets

@@ -1,0 +1,16 @@
+target-fix-trailing-ascii-space-usage-in-inquiry-vendor-model.patch
+iscsi-target-fix-immediatedata-yes-failure-regression-in-v3.10.patch
+iscsi-target-fix-iscsit_transport-reference-leak-during-np-thread-reset.patch
+iscsi-target-fix-potential-null-pointer-in-solicited-nopout-reject.patch
+target-fix-se_cmd-state_list-leak-regression-during-write-failure.patch
+mei-me-fix-hardware-reset-flow.patch
+usb-acm-gadget-null-termintate-strings-table.patch
+hwmon-k10temp-add-support-for-fam16h-kabini.patch
+drivers-hv-vmbus-fix-a-bug-in-the-handling-of-channel-offers.patch
+acpi-ec-add-asustek-l4r-to-quirk-list-in-order-to-validate-ecdt.patch
+drivers-misc-hpilo-correct-panic-when-an-aux-ilo-is-detected.patch
+asoc-fsl-fix-module-build.patch
+imx-drm-imx-drm-core-export-imx_drm_encoder_get_mux_id.patch
+crypto-xor-check-for-osxsave-as-well-as-avx-in-crypto-xor.patch
+drivers-rtc-rtc-max77686.c-fix-wrong-register.patch
+mwifiex-do-not-create-ap-and-p2p-interfaces-upon-driver-loading.patch

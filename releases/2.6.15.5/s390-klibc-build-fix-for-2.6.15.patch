@@ -1,0 +1,54 @@
+From stable-bounces@linux.kernel.org Wed Feb  1 02:41:48 2006
+Date: Wed, 1 Feb 2006 11:41:10 +0100
+From: maximilian attems <maks@sternwelten.at>
+To: schwidefsky@de.ibm.com
+Message-ID: <20060201104110.GA5584@nancy>
+Content-Disposition: inline
+Cc: Heiko Carstens <heiko.carstens@de.ibm.com>
+Subject: [PATCH] s390: add #ifdef __KERNEL__ to asm-s390/setup.h
+
+From: Heiko Carstens <heiko.carstens@de.ibm.com>
+
+Based on a patch from Maximilian Attems <maks@sternwelten.at> .  Nothing in
+asm-s390/setup.h is of interest for user space.
+
+Signed-off-by: Heiko Carstens <heiko.carstens@de.ibm.com>
+Signed-off-by: Andrew Morton <akpm@osdl.org>
+Signed-off-by: Linus Torvalds <torvalds@osdl.org>
+Signed-off-by: Chris Wright <chrisw@sous-sol.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@suse.de>
+---
+
+ include/asm-s390/setup.h |   10 ++++++----
+ 1 files changed, 6 insertions(+), 4 deletions(-)
+
+--- linux-2.6.15.4.orig/include/asm-s390/setup.h
++++ linux-2.6.15.4/include/asm-s390/setup.h
+@@ -8,6 +8,8 @@
+ #ifndef _ASM_S390_SETUP_H
+ #define _ASM_S390_SETUP_H
+ 
++#ifdef __KERNEL__
++
+ #include <asm/types.h>
+ 
+ #define PARMAREA		0x10400
+@@ -114,7 +116,7 @@ extern u16 ipl_devno;
+ 				 IPL_PARMBLOCK_ORIGIN)
+ #define IPL_PARMBLOCK_SIZE	(IPL_PARMBLOCK_START->hdr.length)
+ 
+-#else 
++#else /* __ASSEMBLY__ */
+ 
+ #ifndef __s390x__
+ #define IPL_DEVICE        0x10404
+@@ -127,6 +129,6 @@ extern u16 ipl_devno;
+ #endif /* __s390x__ */
+ #define COMMAND_LINE      0x10480
+ 
+-#endif
+-
+-#endif
++#endif /* __ASSEMBLY__ */
++#endif /* __KERNEL__ */
++#endif /* _ASM_S390_SETUP_H */

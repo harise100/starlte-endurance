@@ -1,0 +1,16 @@
+usb-serial-cp210x-added-ketra-n1-wireless-interface-support.patch
+usb-cp210x-add-support-for-seluxit-usb-dongle.patch
+usb-add-device-quirk-for-asus-t100-base-station-keyboard.patch
+udf-avoid-infinite-loop-when-processing-indirect-icbs.patch
+perf-fix-perf-bug-in-fork.patch
+init-kconfig-fix-have_futex_cmpxchg-to-not-break-up-the-expert-menu.patch
+ring-buffer-fix-infinite-spin-in-reading-buffer.patch
+mm-thp-move-invariant-bug-check-out-of-loop-in-__split_huge_page_map.patch
+mm-numa-do-not-mark-ptes-pte_numa-when-splitting-huge-pages.patch
+media-vb2-fix-vbi-poll-regression.patch
+md-raid5-disable-discard-by-default-due-to-safety-concerns.patch
+jiffies-fix-timeval-conversion-to-jiffies.patch
+drbd-fix-regression-out-of-mem-failed-to-invoke-fence-peer-helper.patch
+nl80211-clear-skb-cb-before-passing-to-netlink.patch
+cpufreq-fix-wrong-time-unit-conversion.patch
+cpufreq-ondemand-change-the-calculation-of-target-frequency.patch

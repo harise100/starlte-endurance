@@ -1,0 +1,13 @@
+splice-use-mapping_gfp_mask.patch
+fix-oops-on-rmmod-capidrv.patch
+x86-fix-32-bit-x86-msi-x-allocation-leakage.patch
+tehuti-check-register-size.patch
+tehuti-move-ioctl-perm-check-closer-to-function-start.patch
+usb-gadget-queue-usb-usb_cdc_get_encapsulated_response-message.patch
+jffs2-fix-free-space-leak-with-in-band-cleanmarkers.patch
+increase-the-max_burst-threshold-from-3-to-tp-reordering.patch
+usb-remove-broken-usb-serial-num_endpoints-check.patch
+v4l-fix-vidiocgap-corruption-in-ivtv.patch
+v4l-cx88-enable-radio-gpio-correctly.patch
+isdn-do-not-validate-isdn-net-device-address-prior-to-interface-up.patch
+fix-dnotify-close-race.patch

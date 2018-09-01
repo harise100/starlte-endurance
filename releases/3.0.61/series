@@ -1,0 +1,15 @@
+drm-i915-invalidate-the-relocation-presumed_offsets-along-the-slow-path.patch
+ftrace-be-first-to-run-code-modification-on-modules.patch
+pci-allow-pcie_aspm-force-even-when-fadt-indicates-it-is-unsupported.patch
+usb-uhci-fix-irq-race-during-initialization.patch
+scsi-sd-reshuffle-init_sd-to-avoid-crash.patch
+drivers-firmware-dmi_scan.c-check-dmi-version-when-get.patch
+drivers-firmware-dmi_scan.c-fetch-dmi-version-from-smbios-if-it-exists.patch
+serial-8250-increase-pass_limit.patch
+staging-usbip-changed-function-return-type-to-void.patch
+drm-i915-implement-wadisablehizplaneswhenmsaaenabled.patch
+ahci-add-identifiers-for-asm106x-devices.patch
+x86-use-enum-instead-of-literals-for-trap-values.patch
+sgi-xp-handle-non-fatal-traps.patch
+acpi-cpuidle-fix-null-pointer-issues-when-cpuidle-is-disabled.patch
+ioat-fix-dma-memory-sync-direction-correct-flag.patch

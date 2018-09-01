@@ -1,0 +1,17 @@
+bridge-fix-faulty-check-in-br_stp_recalculate_bridge_id.patch
+ufs-inode-i_sem-is-not-released-in-error-path.patch
+skge-handle-out-of-memory-on-ring-changes.patch
+fix-ATY-video-on-sunblade.patch
+ppc32-re-add-embed_configc-to-ml300-ep405.patch
+vgacon-fix-doublescan-mode.patch
+fix-workqueue-oops-during-cpu-offline.patch
+netlink-oops-fix-due-to-incorrect-error-code.patch
+netfilter-fix-crash-in-ip_nat_pptp.patch
+netfilter-fix-another-crash-in-ip_nat_pptp.patch
+fix-bridge-netfilter-matching-ip-fragments.patch
+sparc64-fix-ptrace.patch
+sparc64-fix-sys_fstat64-entry-in-64-bit-syscall-table.patch
+fix-DoS-in-netlink_rcv_skb.patch
+moxa-serial-add-proper-capability-check.patch
+fix-sys-class-net-if-wireless-without-dev-get_wireless_stats.patch
+sparc64-fix-HUGETLB_PAGE_SIZE_64K-dependencies.patch
