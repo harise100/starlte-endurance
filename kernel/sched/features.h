@@ -99,17 +99,11 @@ SCHED_FEAT(ENERGY_FILTER, false)
 SCHED_FEAT(HISI_FILTER, true)
 
 #ifdef CONFIG_SCHED_EHMP
-SCHED_FEAT(EHMP, true)
-SCHED_FEAT(EHMP_OM, false)
-SCHED_FEAT(EHMP_LB, false)
-SCHED_FEAT(EHMP_AB, false)
-SCHED_FEAT(EHMP_EU, false)
+SCHED_FEAT(EXYNOS_HMP, true)
+SCHED_FEAT(EXYNOS_HMP_OM, true)
 #else
-SCHED_FEAT(EHMP, false)
-SCHED_FEAT(EHMP_OM, false)
-SCHED_FEAT(EHMP_LB, false)
-SCHED_FEAT(EHMP_AB, false)
-SCHED_FEAT(EHMP_EU, false)
+SCHED_FEAT(EXYNOS_HMP, false)
+SCHED_FEAT(EXYNOS_HMP_OM, false)
 #endif
 /*
  * Enforce the priority of candidates selected by find_best_target()

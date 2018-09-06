@@ -1733,7 +1733,7 @@ static void yield_task_rt(struct rq *rq)
 #ifdef CONFIG_SMP
 static int find_lowest_rq(struct task_struct *task);
 
-#if defined(CONFIG_SCHED_USE_FLUID_RT) && defined(CONFIG_SCHED_EHMP)
+#ifdef CONFIG_SCHED_USE_FLUID_RT
 static int
 select_task_rq_rt_fluid(struct task_struct *p, int cpu, int sd_flag, int flags)
 {
@@ -2259,7 +2259,7 @@ static struct task_struct *pick_highest_pushable_task(struct rq *rq, int cpu)
 
 static DEFINE_PER_CPU(cpumask_var_t, local_cpu_mask);
 
-#if defined(CONFIG_SCHED_USE_FLUID_RT) && defined(CONFIG_SCHED_EHMP)
+#ifdef CONFIG_SCHED_USE_FLUID_RT
 static inline int weight_from_rtprio(int prio)
 {
 	int idx = (prio >> 1);
@@ -2555,7 +2555,7 @@ static int find_lowest_rq(struct task_struct *task)
 	int this_cpu = smp_processor_id();
 	int cpu      = task_cpu(task);
 
-#if defined(CONFIG_SCHED_USE_FLUID_RT) && defined(CONFIG_SCHED_EHMP)
+#ifdef CONFIG_SCHED_USE_FLUID_RT
 	return find_lowest_rq_fluid(task);
 #endif
 
@@ -3136,7 +3136,7 @@ void __init init_sched_rt_class(void)
 					GFP_KERNEL, cpu_to_node(i));
 	}
 
-#if defined(CONFIG_SCHED_USE_FLUID_RT) && defined(CONFIG_SCHED_EHMP)
+#ifdef CONFIG_SCHED_USE_FLUID_RT
     frt_boost_threshold = 0;
 #endif
     sched_switch_to_rt_load_ratio = 0;
@@ -3315,7 +3315,7 @@ const struct sched_class rt_sched_class = {
 	.put_prev_task		= put_prev_task_rt,
 
 #ifdef CONFIG_SMP
-#if defined(CONFIG_SCHED_USE_FLUID_RT) && defined(CONFIG_SCHED_EHMP)
+#ifdef CONFIG_SCHED_USE_FLUID_RT
 	.select_task_rq		= select_task_rq_rt_fluid,
 #else
 	.select_task_rq		= select_task_rq_rt,
@@ -3363,7 +3363,7 @@ void print_rt_stats(struct seq_file *m, int cpu)
  * Sysfs                                                              *
  **********************************************************************/
 static struct attribute *ert_attrs[] = {
-#if defined(CONFIG_SCHED_USE_FLUID_RT) && defined(CONFIG_SCHED_EHMP)
+#ifdef CONFIG_SCHED_USE_FLUID_RT
 	&frt_boost_threshold_attr.attr,
 #endif
 	&switch_fair_load_ratio_attr.attr,
