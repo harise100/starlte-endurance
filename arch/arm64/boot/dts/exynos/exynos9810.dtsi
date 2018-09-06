@@ -5018,7 +5018,7 @@
 			shared-cpus = "4-7";
 
 			enabled = <1>;		/* Enabled */
-			expired_time = <80>;	/* 70ms */
+			expired_time = <80>;	/* 80ms */
 			qos_min_class = <5>;
 		};
 	};
