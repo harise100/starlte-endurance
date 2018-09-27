@@ -4987,19 +4987,19 @@
 			device_type = "freqvar-tune";
 			shared-cpus = "0-3";
 
-			boost_table = < 100 598000 60 715000 30 832000 20 949000 10 1053000 0 >;
+			boost_table = < 0 >;
 			up_rate_limit_table = < 5 >;
 			down_rate_limit_table = < 5 >;
-			upscale_ratio_table = < 80 >;
+			upscale_ratio_table = < 80 1248000 90 1456000 95 >;
 		};
 		domain@1 {
 			device_type = "freqvar-tune";
 			shared-cpus = "4-7";
 
-			boost_table = < 20 858000 15 962000 5 1261000 0 >;
+			boost_table = < 0 >;
 			up_rate_limit_table = < 5 >;
 			down_rate_limit_table = < 5 >;
-			upscale_ratio_table = < 80 >;
+			upscale_ratio_table = < 80 1261000 90 >;
 		};
 	};
 
@@ -5116,7 +5116,7 @@
 						  2704000 1794000
 						  2652000 1794000
 						  2496000 1794000
-						  2314000 1794000
+						  2314000 1539000
 						  2158000 1539000
 						  2002000 1539000
 						  1924000 1539000
@@ -5127,8 +5127,8 @@
 						  1261000  676000
 						  1170000  676000
 						  1066000  676000
-						   962000  546000
-						   858000  546000
+						   962000  421000
+						   858000  421000
 						   741000  421000
 						   650000  421000
 						   598000  421000 >;
