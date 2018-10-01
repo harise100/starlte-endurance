@@ -53,6 +53,12 @@ Module.symvers
 /Module.markers
 
 #
+# Remove zip directory
+#
+
+*zip
+
+#
 # Debian directory (make deb-pkg)
 #
 /debian/

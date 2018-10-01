@@ -4,9 +4,8 @@
 ZIPFILE=$3
 OUTFD=$2
 
-kernel=4.9.129
-apgk=0.99.21
-build=1
+kernel=4.9.130
+endurance=1.0
 
 # Detect real $OUTFD
 readlink /proc/$$/fd/$OUTFD 2>/dev/null | grep /tmp >/dev/null
@@ -47,8 +46,8 @@ unzip_file() {
 
 ui_print " "
 ui_print "======================================="
-ui_print "         APGK $kernel-$apgk-$build"
-ui_print "         a pretty good kernel"
+ui_print "        Endurance Kernel $kernel-$endurance"
+ui_print "         Thanks to @ianmacd for APGK"
 ui_print "=======================================" 
 ui_print " "
 
@@ -149,7 +148,7 @@ ui_print " - Installation completed."
 int=/sdcard/Download	# The standard download location on internal SD card.
 ext=/external_sd	# The external SD card, if present.
 
-# If .magisk exists at none of these locations and the APGK zip file doesn't
+# If .magisk exists at none of these locations and the Endurance zip file doesn't
 # contain _magisk in the name, we are finished.
 #
 if [ ! -f $int/.magisk ] && [ ! -f $ext/.magisk ] && [ -z "$MAGISK" ]; then
