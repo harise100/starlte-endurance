@@ -966,9 +966,6 @@ static ssize_t led_fade_time_down_store(struct device *dev,
 static DEVICE_ATTR(delay_on, 0640, led_delay_on_show, led_delay_on_store);
 static DEVICE_ATTR(delay_off, 0640, led_delay_off_show, led_delay_off_store);
 static DEVICE_ATTR(blink, 0640, NULL, led_blink_store);
-static DEVICE_ATTR(led_fade, 0664, led_fade_show, led_fade_store);
-static DEVICE_ATTR(led_fade_time_up, 0664, led_fade_time_up_show, led_fade_time_up_store);
-static DEVICE_ATTR(led_fade_time_down, 0664, led_fade_time_down_show, led_fade_time_down_store);
 
 #ifdef SEC_LED_SPECIFIC
 /* below nodes is SAMSUNG specific nodes */
